@@ -1,0 +1,16 @@
+
+.root
+{
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-image: url( /content/background.png );
+	background-repeat: repeat;
+}
+
+.example_panel
+{
+	width: 800px;
+	height: 800px;
+	border-radius: 8000px;
+}

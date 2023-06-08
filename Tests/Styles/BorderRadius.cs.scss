@@ -1,0 +1,41 @@
+.panel
+{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	background-image: url( /content/background.png );
+	margin: 10px;
+	font-weight: bolder;
+	font-size: 10px;
+	padding-top: 30px;
+	color: white;
+	transition: all 0.2s ease;
+	border: 0px solid white;
+	align-content: center;
+	justify-content: center;
+	text-align: center;
+	text-shadow: 1px 1px 5px black;
+	border: 2px solid white;
+
+	&:hover
+	{
+		border: 10px solid white;
+	}
+}
+
+.image
+{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	margin: 10px;
+	font-weight: bolder;
+	font-size: 10px;
+	color: white;
+	transition: all 0.2s ease;
+
+	&:hover
+	{
+		border: 10px solid white;
+	}
+}

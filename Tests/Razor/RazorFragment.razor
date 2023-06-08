@@ -1,0 +1,31 @@
+﻿
+@using System
+@namespace Sandbox.UI.Tests.Razor
+@attribute [StyleSheet]
+
+
+<root>
+
+<TableComponent T="TypeDescription" Items="@TypeList">
+
+	<Header>Type Descriptions</Header>
+
+	<Row Context="">
+
+        @if (context is not TypeDescription a)
+            return;
+
+        <span>@a.TargetType</span>
+        <span>@a.Title, @(a.IsEnum ? "Enum" : a.IsInterface ? "Interface" : "Class")</span>
+
+	</Row>
+
+</TableComponent>
+
+</root>
+
+@code {
+    public List<TypeDescription> TypeList = TypeLibrary.GetTypes().OrderBy(x => x.Name).ToList();
+
+
+}

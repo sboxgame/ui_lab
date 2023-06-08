@@ -1,0 +1,48 @@
+﻿@typeparam T
+@using System
+@namespace Sandbox.UI
+@attribute [StyleSheet]
+
+<root class="table">
+
+    <div class="table-header">
+        <div class="left">@Header</div>
+        <div class="right">Page @(CurrentPage + 1) of @(TotalPages + 1)</div>
+    </div>
+
+    <div class="table-body">
+    @foreach (var item in Items.Skip( CurrentPage * PerPage ).Take(PerPage))
+    {
+        <div class="table-row">
+            @Row( item )
+        </div>
+    }
+    </div>
+
+    <div class="table-footer">
+        <div class="button @(CurrentPage <= 0 ? "disabled" : "")" onclick="@(() => AddPage( -1 ))">Previous</div>
+        <div class="button @(CurrentPage >= TotalPages ? "disabled" : "")" onclick="@(() => AddPage( 1 ))">Next</div>
+    </div>
+
+</root>
+
+
+@code
+{
+    public Sandbox.Razor.RenderFragment Header;
+
+    public Sandbox.Razor.RenderFragment<T> Row;
+
+    public IList<T> Items { get; set; }
+
+    public int PerPage = 15;
+
+    public int TotalPages => Items.Count() / PerPage;
+    public int CurrentPage = 0;
+
+    public void AddPage( int delta )
+    {
+        CurrentPage += delta;
+        CurrentPage = CurrentPage.Clamp( 0, TotalPages );
+    }
+}

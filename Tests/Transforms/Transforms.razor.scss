@@ -1,0 +1,115 @@
+﻿
+
+.root 
+{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.example_panel {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: white;
+    color: #444;
+    margin: 40px;
+    transition: all 0.5s linear;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    animation-name: perspectiveorigin;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes perspectiveorigin {
+    0% {
+        perspective-origin: 0% 0%;
+    }
+
+    25% {
+        perspective-origin: 100% 0%;
+    }
+
+    50% {
+        perspective-origin: 0% 100%;
+    }
+
+    75% {
+        perspective-origin: 0% 0%;
+    }
+
+    100% {
+        perspective-origin: 100% 100%;
+    }
+}
+
+.example_panel.rotation {
+    transform: rotate( -45deg );
+
+    &:hover {
+        transform: rotate( 45deg );
+    }
+}
+
+.example_panel.scale {
+    transform: scale( 0.8 );
+
+    &:hover {
+        transform: scale( 1.1 );
+    }
+}
+
+.example_panel.skew {
+    transform: skew( 15deg 0deg );
+
+    &:hover {
+        transform: skew( 15deg 55deg );
+    }
+}
+
+.example_panel.rotatex {
+    transform: perspective(500px) rotateX(20deg);
+
+    &:hover {
+        transform: perspective(500px) rotateX(-20deg);
+    }
+}
+
+
+.example_panel.rotatey {
+    transform: perspective(500px) rotateY(20deg);
+
+    &:hover {
+        transform: perspective(500px) rotateY(-20deg);
+    }
+}
+
+.example_panel.rotatez {
+    transform: rotateZ(20deg);
+
+    &:hover {
+        transform: rotateZ(-20deg);
+    }
+}
+
+.example_panel.translatez {
+    transform: perspective(200px) translateZ(-50px);
+
+    &:hover {
+        transform: perspective(200px) translateZ(0px);
+    }
+}
+
+.example_panel.matrix3d {
+    transform: matrix3d( 0.5, 0, -0.866025, 0, 0.595877, 1.2, -1.03209, 0, 0.866025, 0, 0.5, 0, 25.9808, 0, 15, 1);
+
+    &:hover {
+        transform: matrix3d( -0.6, 1.34788, 0, 0, -2.34788, -0.6, 0, 0, 0, 0, 1, 0, 0, 0, 10, 1);
+    }
+}

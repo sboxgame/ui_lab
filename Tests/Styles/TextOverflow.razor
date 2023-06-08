@@ -1,0 +1,86 @@
+﻿
+@namespace Sandbox.UI.Tests.Styles
+@inherits Sandbox.UI.Panel
+
+<style>
+    TextOverflow {
+        flex-direction: column;
+    }
+
+    .row {
+        padding: 10px;
+        margin-bottom: 5px;
+        background-color: #3472e6;
+        font-size: 18px;
+        color: #FFF;
+        transition: width 1s linear;
+        text-shadow: 1px 1px 1px black;
+
+        &.hover:hover {
+            width: 500px;
+            background-color: #2b2b2b;
+        }
+    }
+
+    .ellipsis {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .clip {
+        text-overflow: clip;
+        white-space: nowrap;
+    }
+
+    .short {
+        width: 200px;
+    }
+
+    .long {
+        width: 350px;
+    }
+</style>
+
+<root>
+
+    <div class="row short">
+        This row has nothing special
+    </div>
+
+    <div class="row ellipsis short hover">
+        Nowrap and overflow set to `ellipsis`
+    </div>
+
+    <div class="row clip short hover">
+        Nowrap and overflow set to `clip`
+    </div>
+
+    <div class="row ellipsis long hover" style="height: 70px;">
+        This is a tall one 🥳, it should have 
+an ellipsis at the end of the second line but not the first
+    </div>
+
+    <div class="row ellipsis short hover" style="max-height: 44px;">
+        This one has two lines but the 2nd is out of sight
+an ellipsis at the end of the first line but definitely not on the second line
+    </div>
+
+    <div class="row ellipsis long hover" style="letter-spacing: 3px;">
+        This is a long one with letter-spacing applied to it
+    </div>
+
+    <div class="row short" style="white-space: nowrap;">
+        This one has no text-overflow, just a nowrap
+    </div>
+
+    <div class="row short" style="white-space: nowrap; overflow: hidden;">
+        This one has no text-overflow, just a nowrap and overflow: hidden
+    </div>
+
+    <div class="row big-box ellipsis" style="width: 500px; height: 138px; word-break: break-all;">
+        This box has a a lot of words and `word-break: break-all`
+
+Lorem ipsum dolor sit amet, consectetur a😀dipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam maecenas ultricies mi eget mauris p😢haretra et. Turpis nunc eget lorem dolor sed viverra ipsum. Nullam ac to👻rtor vitae purus faucibus ornare. Fusce id velit ut tortor. Sed faucibus turpis in eu mi bibendum. Convallis tellus id interdum velit laoreet id donec ultrices. Id leo in vitae turpis. Sed libero enim sed faucibus turpis in. Etiam sit amet nisl purus in mollis nunc sed. Nisi lacus sed viverra tellus in hac habitasse. Sed elementum tempus egestas sed. Viverra adipiscing at in tellus integer feugiat.
+    </div>
+
+</root>

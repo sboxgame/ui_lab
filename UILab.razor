@@ -1,0 +1,110 @@
+@using System
+@using Sandbox;
+@using Sandbox.UI;
+@attribute [StyleSheet]
+@inherits Panel
+@namespace DmMenu
+@implements Sandbox.Menu.IGameMenuPanel
+
+<root>
+
+    <div id="links">
+
+        @foreach (var option in Options)
+        {
+            var c = CurrentOption == option.Value ? "active" : "";
+            <a class="@c" onclick="@(() => CurrentOption = option.Value )">@option.Key</a>
+        }
+
+    </div>
+
+    <div id="page">
+
+        <div id="sidebar">
+
+            @foreach (TypeDescription type in AllTypes
+                                                .Where(x => x.Namespace.Contains(CurrentOption))
+                                                .OrderBy( x => x.Title)
+                                                )
+            {
+                var c = type.FullName == currentControlName ? "active" : "not-active";
+                <a class="@c" onmousedown="@(() => SwitchPane( type.FullName ) )">
+
+                    <i>@type.Icon</i>
+                    <span>@type.Title</span>
+                </a>
+            }
+
+        </div>
+
+        <div id="body" @ref="BodyPanel">
+
+        </div>
+        
+    </div>
+
+</root>
+
+@code
+{
+    public string CurrentOption { get; set; }
+    public Dictionary<string, string> Options = new Dictionary<string, string>();
+    public TypeDescription[] AllTypes;
+    public Panel BodyPanel;
+
+    string currentControlName;
+    Panel currentControl;
+
+    public UILab()
+    {
+        Options.Add("Styles", "Styles");
+        Options.Add("Transforms", "Transforms");
+        Options.Add("Basics", "Basics");
+        Options.Add("Elements", "Elements");
+        Options.Add("Razor", "Razor");
+
+        CurrentOption = "Styles";
+        currentControlName = "Sandbox.UI.Tests.Styles.BackdropFilter";
+
+        RefreshTypes();
+    }
+
+    [Event.Hotload]
+    public void RefreshTypes()
+    {
+        AllTypes = TypeLibrary.GetTypes<Panel>()
+                        .Where(x => x.Namespace?.StartsWith("Sandbox.UI.Test") ?? false )
+                        .ToArray();
+
+        BuildControl();
+        StateHasChanged();
+    }
+
+    protected override void OnAfterTreeRender(bool firstTime)
+    {
+        base.OnAfterTreeRender(firstTime);
+
+        if ( firstTime )
+        {
+            BuildControl();
+        }
+    }
+
+    void SwitchPane( string paneName )
+    {
+        currentControlName = paneName;
+        BuildControl();
+    }
+
+    void BuildControl()
+    {
+        currentControl?.Delete();
+
+        TypeDescription t = AllTypes.FirstOrDefault(x => x.FullName == currentControlName);
+        if ( t == null ) return;
+
+        currentControl = t.Create<Panel>();
+        currentControl.Parent = BodyPanel;
+    }
+
+}

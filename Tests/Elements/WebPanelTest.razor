@@ -1,0 +1,43 @@
+﻿@using System;
+@using Sandbox.UI;
+@namespace Sandbox.UI.Tests.Elements
+@attribute [Icon( "web" )]
+@attribute [Title( "Web Panel" )]
+
+<root>
+
+    <div style="font-size: 20px; padding: 10px;">@WebPanel?.Surface?.PageTitle</div>
+    <TextEntry Value:bind=@Url></TextEntry>
+
+    <WebPanel style="width: 100%; height: 600px;" @ref="WebPanel"></WebPanel>
+
+</root>
+
+
+@code{
+
+    public string Url
+    {
+        get { return WebPanel?.Surface?.Url ?? ""; }
+        set { if ( WebPanel?.Surface?.Url != null ) WebPanel.Surface.Url = value; }
+    }
+
+    public WebPanel WebPanel { get; set; }
+
+    protected override void OnAfterTreeRender(bool firstTime)
+    {
+        base.OnAfterTreeRender(firstTime);
+
+        if ( firstTime )
+        {
+            WebPanel.Surface.Url = "https://sbox.facepunch.com";
+        }
+    }
+
+    protected override int BuildHash()
+    {
+        // this will force a rebuild every time the date time string changes
+        return HashCode.Combine( DateTime.Now.ToString());
+    }
+
+}

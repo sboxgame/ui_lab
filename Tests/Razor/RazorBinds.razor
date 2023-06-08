@@ -1,0 +1,88 @@
+﻿@using System;
+@using Sandbox.UI;
+@namespace Sandbox.UI.Tests.Razor
+
+@{
+    RenderCount++;
+}
+
+<root style="flex-direction: column;">
+
+    <row>
+        <div>Render Count:</div>
+        <div>@RenderCount</div>
+    </row>
+
+    <row>
+        <div>String Value:</div>
+        <div>@StringValue</div>
+    </row>
+
+    <row>
+        <div>Int Value:</div>
+        <div>@IntValue</div>
+    </row>
+
+    <row>
+        <div>Current Date:</div>
+        <div>@DateTime.Now</div>
+    </row>
+
+    <row>
+        <div>Int Mod:</div>
+        <div>
+            <button @onclick=@( () => IntValue-- )>-1</button>
+            <button @onclick=@( () => IntValue++ )>+1</button>
+        </div>
+    </row>       
+        
+    <row>
+        <div>Int Slider:</div>
+        <column class="grow">
+            <SliderControl min="0" max="100" step="1" Value:bind=@IntValue></SliderControl>
+        </column>
+    </row>
+
+    <row>
+        <div>HoveredText:</div>
+        <column>
+            @HoveredText
+        </column>
+    </row>
+
+    <row>
+        <div>String Input:</div>
+        <column class="grow">
+            <TextEntry Value:bind=@StringValue></TextEntry>
+        </column>
+    </row>       
+        
+    <row>
+        <div>Int For:</div>
+        <div class="circle-canvas">
+            @for (int i = 0; i < IntValue; i++ )
+            {
+                var localI = i;
+                <div class="circle" @onmouseover=@( () => HoveredText = $"Hovered over number {localI}" ) @onclick=@(() => { Log.Info( localI ); IntValue = localI; } )>@localI</div>
+            }
+        </div>
+    </row>
+
+    <div class="grow"></div>
+
+</root>
+
+
+@code{
+
+    public int RenderCount { get; set; }
+    public int IntValue{ get; set; }
+    public string HoveredText{ get; set; }
+
+    protected override int BuildHash()
+    {
+        // this will force a rebuild every time the date time string changes
+        return HashCode.Combine( DateTime.Now.ToString());
+    }
+
+}

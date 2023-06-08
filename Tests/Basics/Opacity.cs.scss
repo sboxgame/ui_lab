@@ -1,0 +1,59 @@
+
+Opacity
+{
+	align-items: center;
+	justify-content: center;
+
+	.group
+	{
+		width: 100px;
+		height: 400px;
+		margin: 10px;
+		flex-direction: column;
+		background-color: #0094ff;
+
+
+		.a, .b, .c, .d, .e
+		{
+			flex-grow: 1;
+			width: 100%;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 2px;
+			transition: all 1s linear;
+		}
+
+		.a
+		{
+			opacity: 1.0;
+		}
+
+		.b
+		{
+			opacity: 0.75;
+		}
+
+		.c
+		{
+			opacity: 0.5;
+		}
+
+		.d
+		{
+			opacity: 0.25;
+		}
+
+		.e
+		{
+			opacity: 0;
+		}
+
+		&:hover
+		{
+			.a, .b, .c, .d, .e
+			{
+				opacity: 1.0;
+			}
+		}
+	}
+}

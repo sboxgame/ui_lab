@@ -1,0 +1,126 @@
+﻿
+@namespace Sandbox.UI.Tests.Basics
+@inherits Sandbox.UI.Panel
+
+<style>
+    Scrolling {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .canvas {
+        background-color: rgba(dodgerblue .5);
+        color: white;
+        flex-shrink: 0;
+        padding: 30px;
+    }
+
+    .canvas:hover {
+        background-color: dodgerblue;
+    }
+
+    .scrollable {
+        width: 300px;
+	    height: 300px;
+        background-color: black;
+	    overflow: scroll;
+	    flex-direction: column;
+	    margin: 10px;
+    }
+
+	.with-reverse-direction
+	{
+		flex-direction: column-reverse;
+	}
+
+	.with-justify-end
+	{
+		justify-content: flex-end;
+	}
+
+    .with-padding {
+        padding: 10px;
+    }
+
+    .with-margin .canvas {
+        margin: 10px;
+    }
+</style>
+
+<root>
+
+    <div class="rows">
+
+        <div class="scrollable">
+            <label class="canvas">ONE</label>
+            <label class="canvas">TWO</label>
+            <label class="canvas">THREE</label>
+            <label class="canvas">FOUR</label>
+            <label class="canvas">FIVE</label>
+            <label class="canvas">SIX</label>
+            <label class="canvas">SEVEN</label>
+            <label class="canvas">EIGHT</label>
+            <label class="canvas">NINE</label>
+            <label class="canvas">TEN</label>
+        </div>
+
+        <div class="scrollable with-padding">
+            <label class="canvas">ONE</label>
+            <label class="canvas">TWO</label>
+            <label class="canvas">THREE</label>
+            <label class="canvas">FOUR</label>
+            <label class="canvas">FIVE</label>
+            <label class="canvas">SIX</label>
+            <label class="canvas">SEVEN</label>
+            <label class="canvas">EIGHT</label>
+            <label class="canvas">NINE</label>
+            <label class="canvas">TEN</label>
+        </div>
+
+        <div class="scrollable with-margin">
+            <label class="canvas">ONE</label>
+            <label class="canvas">TWO</label>
+            <label class="canvas">THREE</label>
+            <label class="canvas">FOUR</label>
+            <label class="canvas">FIVE</label>
+            <label class="canvas">SIX</label>
+            <label class="canvas">SEVEN</label>
+            <label class="canvas">EIGHT</label>
+            <label class="canvas">NINE</label>
+            <label class="canvas">TEN</label>
+        </div>
+
+    </div>
+
+	<div class="rows">
+
+		<div class="scrollable with-reverse-direction with-margin">
+			<label class="canvas">ONE</label>
+			<label class="canvas">TWO</label>
+			<label class="canvas">THREE</label>
+			<label class="canvas">FOUR</label>
+			<label class="canvas">FIVE</label>
+			<label class="canvas">SIX</label>
+			<label class="canvas">SEVEN</label>
+			<label class="canvas">EIGHT</label>
+			<label class="canvas">NINE</label>
+			<label class="canvas">TEN</label>
+		</div>
+
+		<div class="scrollable with-justify-end with-margin">
+			<label class="canvas">ONE</label>
+			<label class="canvas">TWO</label>
+			<label class="canvas">THREE</label>
+			<label class="canvas">FOUR</label>
+			<label class="canvas">FIVE</label>
+			<label class="canvas">SIX</label>
+			<label class="canvas">SEVEN</label>
+			<label class="canvas">EIGHT</label>
+			<label class="canvas">NINE</label>
+			<label class="canvas">TEN</label>
+		</div>
+		
+	</div>
+
+</root>
