@@ -8,6 +8,7 @@ namespace Sandbox.UI.Tests.Styles;
 public class BackdropFilter : Panel
 {
 	public Panel ExamplePanel { get; set; }
+	public Panel BlurPanel { get; set; }
 
 	[Property]
 	[Range( 0, 1000, 1, false )]
@@ -51,6 +52,7 @@ public class BackdropFilter : Panel
 	public BackdropFilter()
 	{
 		AddClass( "root has-form" );
+		BlurPanel = AddChild<Panel>( "blur_panel" );
 		ExamplePanel = AddChild<Panel>( "example_panel" );
 	}
 
@@ -61,6 +63,11 @@ public class BackdropFilter : Panel
 		Style.BackgroundPositionX = RealTime.Now * -10.0f;
 		Style.BackgroundPositionY = MathF.Cos( RealTime.Now * 2.0f ) * 50.0f;
 		Style.BackgroundRepeat = BackgroundRepeat.Repeat;
+
+		BlurPanel.Style.BackdropFilterBlur = FilterBlur * 2;
+		BlurPanel.Style.Right = ( MathF.Sin( RealTime.Now * 2.0f ) * 500.0f ) + 500.0f;
+		BlurPanel.Style.ZIndex = Time.Now % ( 2.0f * MathF.PI ) > MathF.PI ? 10 : -10;
+		BlurPanel.Style.Dirty();
 
 		ExamplePanel.Style.BackdropFilterBlur = FilterBlur;
 		ExamplePanel.Style.BackdropFilterBrightness = FilterBrightness;
