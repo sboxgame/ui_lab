@@ -41,15 +41,15 @@
                         <i>volume_off</i>
                     </div>
                 }
-                else if (false /*VideoPlayer.Muted*/ )
+                else if ( VideoPlayer.Muted )
                 {
-                    <div class="playbutton video-control-button" onclick="@VideoPlayer.Resume">
+                    <div class="playbutton video-control-button" onclick="@( () => VideoPlayer.Muted = false )">
                         <i>volume_off</i>
                     </div>
                 }
                 else
                 {
-                    <div class="playbutton video-control-button" onclick="@VideoPlayer.Pause">
+					<div class="playbutton video-control-button" onclick="@( () => VideoPlayer.Muted = true )">
                         <i>volume_up</i>
                     </div>
                 }
