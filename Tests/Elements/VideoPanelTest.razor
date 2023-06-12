@@ -1,0 +1,30 @@
+﻿@namespace Sandbox.UI.Tests.Elements
+@attribute [StyleSheet]
+@inherits Sandbox.UI.Panel
+
+<div class="root">
+
+    <div>
+        <div class="button" onclick="@(() => ChangeVideo( "/content/boxes.webm" ) )">Play Local Video</div>
+        <div class="button" onclick="@(() => ChangeVideo( "https://files.facepunch.com/paddy/20230601/build_gibs.mp4" ) )">Play Internet Video</div>
+    </div>
+
+    
+    <div>
+        <VideoPanel Source="@VideoSource"></VideoPanel>
+    </div>
+
+</div>
+
+@code 
+{
+    string VideoSource { get; set; } = "https://files.facepunch.com/paddy/20230601/build_gibs.mp4";
+    Panel Pauser;
+
+    float floatValue;
+
+    void ChangeVideo( string url )
+    {
+        VideoSource = url;
+    }
+}

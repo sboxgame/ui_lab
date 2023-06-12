@@ -1,0 +1,13 @@
+﻿
+.videopanel
+{
+    width: 100%;
+
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    // Where we want the video controls
+    align-items: flex-end;
+    padding: 30px;
+    justify-content: center;
+}

@@ -1,0 +1,95 @@
+﻿@using System
+@namespace Sandbox.UI
+@attribute [StyleSheet]
+@inherits Sandbox.UI.Panel
+
+@if (VideoPlayer == null)
+    return;
+
+<root class="videocontrols">
+
+    <div class="left">
+
+        @if ( VideoPlayer.IsPaused )
+        {
+            <div class="playbutton video-control-button" onclick="@VideoPlayer.Resume">
+                <i>play_arrow</i>
+            </div>
+        }
+        else
+        {
+            <div class="playbutton video-control-button" onclick="@VideoPlayer.Pause">
+                <i>pause</i>
+            </div>
+        }
+
+    </div>
+
+    <div class="right">
+
+        <div class="timeline">
+            <SliderControl  NumberFormat="0" Min="@(0)" Max="@VideoPlayer.Duration" Value="@VideoPlayer.PlaybackTime" OnValueChanged="@TimelineChanged"></SliderControl>
+        </div>
+
+        <div class="meta">
+
+            <div class="left">
+
+                @if ( !VideoPlayer.HasAudio )
+                {
+                    <div class="playbutton video-control-button disabled">
+                        <i>volume_off</i>
+                    </div>
+                }
+                else if (false /*VideoPlayer.Muted*/ )
+                {
+                    <div class="playbutton video-control-button" onclick="@VideoPlayer.Resume">
+                        <i>volume_off</i>
+                    </div>
+                }
+                else
+                {
+                    <div class="playbutton video-control-button" onclick="@VideoPlayer.Pause">
+                        <i>volume_up</i>
+                    </div>
+                }
+
+            </div>
+
+            <div class="right">
+                <span>@GetPlayback()</span>
+                <span> / </span>
+                <span>@GetDuration()</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</root>
+
+@code 
+{
+    public Sandbox.VideoPlayer VideoPlayer { get; set; }
+
+    protected override int BuildHash()
+    {
+        return System.HashCode.Combine( VideoPlayer, VideoPlayer?.PlaybackTime, VideoPlayer.IsPaused );
+    }
+
+    void TimelineChanged( float value )
+    {
+        VideoPlayer.Seek( value );
+    }
+
+    string GetPlayback()
+    {
+        return TimeSpan.FromSeconds( VideoPlayer.PlaybackTime ).ToString( "mm\\:ss" ); //);
+    }
+
+    string GetDuration()
+    {
+        return TimeSpan.FromSeconds( VideoPlayer.Duration ).ToString( "mm\\:ss" );
+    }
+
+}

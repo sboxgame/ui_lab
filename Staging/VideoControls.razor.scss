@@ -1,0 +1,85 @@
+﻿
+.videocontrols
+{
+    background-color: #0005;
+    backdrop-filter: blur( 10px );
+    min-width: 200px;
+    max-width: 800px;
+    flex-grow: 1;
+    border-radius: 10px;
+    pointer-events: all;
+    flex-direction: row;
+
+
+    > .left
+    {
+        .playbutton
+        {
+            font-size: 60px;
+            padding: 20px;
+            pointer-events: all;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    > .right
+    {
+        flex-grow: 1;
+        flex-direction: column;
+        padding: 16px 32px;
+        padding-left: 0px;
+        gap: 5px;
+    }
+
+    .meta
+    {
+        .left
+        {
+            flex-grow: 1;
+
+            i
+            {
+                font-size: 25px;
+            }
+        }
+
+        .right
+        {
+            font-size: 15px;
+            opacity: 0.8;
+            gap: 5px;
+        }
+    }
+
+    .video-control-button
+    {
+        opacity: 0.8;
+        cursor: pointer;
+
+        &:hover
+        {
+            opacity: 1;
+        }
+
+        &.disabled
+        {
+            pointer-events: none;
+            opacity: 0.2;
+        }
+    }
+
+    .slidercontrol 
+    {
+        .thumb
+        {
+            display: none;
+        }
+
+        .track
+        {
+            margin: 0;
+            height: 10px;
+        }
+    }
+}

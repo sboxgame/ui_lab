@@ -1,0 +1,84 @@
+﻿@namespace Sandbox.UI
+@attribute [StyleSheet]
+@inherits Sandbox.UI.Panel
+
+<root class="videopanel">
+
+    @if (Controls)
+    {
+        <VideoControls VideoPlayer="@videoPlayer"></VideoControls>
+    }
+
+</root>
+
+@code 
+{
+    string _source;
+
+    public string Source 
+    { 
+        get => _source; 
+
+        set
+        {
+            if (_source == value) return;
+
+            _source = value;
+
+            videoPlayer.Play( FileSystem.Mounted, Source );
+        }
+    }
+
+    public bool Repeat
+    {
+        set
+        {
+            videoPlayer.Repeat = value;
+        }
+    }
+
+    public bool Controls { get; set; } = true;
+
+    Sandbox.VideoPlayer videoPlayer;
+
+    public VideoPanel()
+    {
+        videoPlayer = new VideoPlayer();
+        Repeat = true;
+        Style.AspectRatio = 16.0f / 9.0f;
+    }
+
+    public override void OnDeleted()
+    {
+        videoPlayer?.Dispose();
+        videoPlayer = null;
+    }
+
+    public override bool HasContent => true;
+
+    public override void Tick()
+    {
+        base.Tick();
+
+        // Try to match the aspect ratio of the video
+        if (videoPlayer.Width > 4 && videoPlayer.Height > 4)
+        {
+            Style.AspectRatio = (float)videoPlayer.Width / (float)videoPlayer.Height;
+        }
+    }
+
+
+    public override void DrawContent(ref RenderState state)
+    {
+        base.DrawContent(ref state);
+
+        videoPlayer.Present();
+
+        var tex = videoPlayer?.Texture;
+
+        // todo - change the UV so we can do object-fit: cover
+        Graphics.Attributes.Set("Texture", videoPlayer.Texture );
+        Graphics.DrawQuad( Box.Rect, Material.UI.Basic, Color.White );
+    }
+
+}

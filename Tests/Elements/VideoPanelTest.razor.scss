@@ -1,0 +1,15 @@
+﻿
+.root
+{
+    flex-direction: column;
+
+    .button
+    {
+        margin: 10px 0;
+        background-color: white;
+        color: black;
+        padding: 5px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+}
