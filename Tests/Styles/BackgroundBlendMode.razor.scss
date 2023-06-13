@@ -1,0 +1,43 @@
+﻿BackgroundBlendMode {
+    height: 100%;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+    
+    main {
+        width: 384px;
+        height: 384px;
+    }
+
+    div {
+        position: absolute;
+        width: 256px;
+        height: 256px;
+        border: 4px solid black;
+        background-image: url( /Content/balloon.jpg );
+        background-size: cover;
+
+        color: black;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 10px;
+        font-weight: bolder;
+        text-stroke: 4px white;
+
+        &.a {
+            background-color: #0f0;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-blend-mode: lighten;
+        }
+
+        &.b {
+            background-color: #f0f;
+            top: 128px;
+            left: 128px;
+            background-blend-mode: multiply;
+        }
+    }
+}
