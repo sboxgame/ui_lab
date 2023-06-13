@@ -37,6 +37,14 @@
     animation-timing-function: bounce-out;
 }
 
+.example_panel.rotation-fill-mode {
+    animation-name: rotationShort;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+}
+
 @keyframes rotation {
     0% {
         transform: rotate( 0deg );
@@ -44,6 +52,16 @@
 
     100% {
         transform: rotate( 360deg );
+    }
+}
+
+@keyframes rotationShort {
+    0% {
+        transform: rotate( 90deg );
+    }
+
+    100% {
+        transform: rotate( 180deg );
     }
 }
 
