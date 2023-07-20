@@ -1,0 +1,51 @@
+﻿@namespace Sandbox.UI.Tests.Basics
+@attribute [StyleSheet]
+@inherits Sandbox.UI.Panel
+
+<div class="root">
+
+    <label @ref="label">Click on bg</label>
+
+</div>
+
+@code
+{
+    Label label;
+    Vector2 position;
+
+    public override void Tick()
+    {
+        base.Tick();
+
+        if (HasMouseCapture)
+        {
+            position += Mouse.Delta;
+
+            label.Text = $"{position.x}\n{position.y}";
+
+            label.Style.Left = position.x;
+            label.Style.Top = position.y;
+            label.Style.Dirty();
+
+            // When the mouse becomes visible again, 
+            // we'll put the cursor in the middle of this box
+            Mouse.Position = label.Box.Rect.Position + label.Box.Rect.Size * 0.5f;
+        }
+    }
+
+	protected override void OnMouseDown( MousePanelEvent e )
+	{
+		base.OnMouseDown( e );
+		e.StopPropagation();
+	}
+
+	public override void OnButtonEvent( ButtonEvent e )
+	{
+		if ( e.Button == "mouseleft" )
+		{
+			SetMouseCapture( e.Pressed );
+		}
+
+		base.OnButtonEvent( e );
+	}
+}
