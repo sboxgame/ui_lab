@@ -1,0 +1,17 @@
+.image
+{
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	font-weight: bolder;
+	font-size: 10px;
+	padding: 10px;
+	color: white;
+	transition: all 2s ease;
+
+	&:hover
+	{
+		width: 200px;
+		height: 300px;
+	}
+}
