@@ -27,6 +27,10 @@ public class Background : Panel
 
 		// https://files.facepunch.com/alexguthrie/1b3111b1/msedge_ZmsouzmjVW.png
 		AddTest( "background: linear-gradient( to top, black, white );", "linear-gradient to top" );
+
+		AddTest( "background: linear-gradient(black, rgba(#23fe1c, 0));", "mixed gradient color sources" );
+
+		AddTest( "background: linear-gradient( to top, rgba( #222, 0.3 ), rgba( #222, 0.9 ) 95% );", "gradient" );
 	}
 
 	void AddTest( string styles, string text )
