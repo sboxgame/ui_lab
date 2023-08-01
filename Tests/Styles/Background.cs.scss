@@ -15,3 +15,27 @@
 		height: 300px;
 	}
 }
+
+@keyframes Rainbow {
+	0% {
+		background: #ff0000;
+	}
+    16% {
+        background: #ff7f00;
+    }
+    33% {
+        background: #ffff00;
+    }
+    50% {
+        background: #00ff00;
+    }
+    66% {
+        background: #0000ff;
+    }
+    83% {
+        background: #4b0082;
+    }
+    100% {
+        background: #8f00ff;
+    }
+}
