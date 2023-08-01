@@ -27,8 +27,6 @@ public class Background : Panel
 
 		// https://files.facepunch.com/alexguthrie/1b3111b1/msedge_ZmsouzmjVW.png
 		AddTest( "background: linear-gradient( to top, black, white );", "linear-gradient to top" );
-
-		AddTest( "animation-name: rainbow; animation-duration: 10s;", "animated" );
 	}
 
 	void AddTest( string styles, string text )
