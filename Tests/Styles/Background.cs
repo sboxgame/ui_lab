@@ -31,6 +31,8 @@ public class Background : Panel
 		AddTest( "background: linear-gradient(black, rgba(#23fe1c, 0));", "mixed gradient color sources" );
 
 		AddTest( "background: linear-gradient( to top, rgba( #222, 0.3 ), rgba( #222, 0.9 ) 95% );", "gradient" );
+
+		Add.Label( "variable gradient", "image variable-gradient" );
 	}
 
 	void AddTest( string styles, string text )

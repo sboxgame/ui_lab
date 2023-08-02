@@ -1,5 +1,6 @@
-.image
-{
+$blue-dull: #49759c;
+
+.image {
 	width: 100px;
 	height: 100px;
 	margin: 10px;
@@ -9,9 +10,12 @@
 	color: white;
 	transition: all 2s ease;
 
-	&:hover
-	{
+	&:hover {
 		width: 200px;
 		height: 300px;
+	}
+
+	&.variable-gradient {
+		background: linear-gradient(#1A1D1D, rgba($blue-dull,0));
 	}
 }
