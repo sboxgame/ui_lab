@@ -17,6 +17,10 @@ public class Animations : Panel
 
 		AddTest( "animation: infinite rainbow 10s ease-in;" );
 		AddTest( "animation: 5s rainbow ease-in 1s 1 both" );
+
+		Add.Panel( "newline" );
+		
+		Add.Panel( "ping" );
 	}
 
 	void AddTest( string styles )
