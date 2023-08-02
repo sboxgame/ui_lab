@@ -1,0 +1,64 @@
+﻿@namespace Sandbox.UI.Tests.Basics
+@inherits Sandbox.UI.Panel
+
+<style>
+	Flex {
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	div {
+		display: flex;
+		width: 100%;
+
+		margin-bottom: 8px;
+
+		span {
+			border: 1px solid red;
+		}
+	}
+</style>
+
+<root>
+	// https://files.facepunch.com/alexguthrie/1b0211b1/msedge_pdsBTNfASA.png
+
+	<label>flex: 1 1 auto;</label>
+	<div>
+		@for ( int i = 0; i < 10; ++i )
+		{
+			<span style="flex: 1 1 auto;">
+				Hello
+			</span>
+		}
+	</div>
+
+	<label>flex: none;</label>
+	<div>
+		@for (int i = 0; i < 10; ++i)
+		{
+			<span style="flex: none;">
+				Hello
+			</span>
+		}
+	</div>
+	
+	<label>flex: auto;</label>
+	<div>
+		@for (int i = 0; i < 10; ++i)
+		{
+			<span style="flex: auto;">
+				Hello
+			</span>
+		}
+	</div>
+
+	<label>flex: 0 0 auto;</label>
+	<div>
+		@for (int i = 0; i < 10; ++i)
+		{
+			<span style="flex: 0 0 auto;">
+				Hello
+			</span>
+		}
+	</div>
+</root>
