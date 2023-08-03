@@ -2,7 +2,7 @@
 @inherits Sandbox.UI.Panel
 
 <style>
-	Flex {
+	FlexShorthand {
 		flex-direction: column;
 		gap: 8px;
 	}
@@ -20,8 +20,7 @@
 </style>
 
 <root>
-	// https://files.facepunch.com/alexguthrie/1b0211b1/msedge_pdsBTNfASA.png
-
+	@* https://files.facepunch.com/alexguthrie/1b0211b1/msedge_pdsBTNfASA.png *@
 	<label>flex: 1 1 auto;</label>
 	<div>
 		@for ( int i = 0; i < 10; ++i )
