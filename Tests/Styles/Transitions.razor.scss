@@ -9,6 +9,21 @@ Transitions
 }
 
 .example_panel {
+	&:hover {
+		transform: rotate(180deg);
+	}
+}
+
+.scale_panel {
+	border-radius: 4px;
+	flex-shrink: 0;
+
+	&:hover {
+		transform: scale(1.5);
+	}
+}
+
+.example_panel, .scale_panel {
 	border: 4px solid black;
 	width: 200px;
 	height: 150px;
@@ -21,11 +36,7 @@ Transitions
 	align-items: center;
 	font-weight: bolder;
 	flex-direction: column;
-
-	&:hover {
-		transform: rotate(180deg);
-	}
-
+	
 	.little {
 		font-size: 12px;
 	}

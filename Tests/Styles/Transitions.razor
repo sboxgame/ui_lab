@@ -9,6 +9,7 @@
         ("transform 2s", "property name | duration"),
         ("transform 2s 1s", "property name | duration | delay"),
         ("transform 2s ease-in-out 1s", "property name | duration | easing function | delay"),
+        ("all 2s", "all | duration"),
         ("transform 2s ease", "ease"),
         ("transform 2s ease-in", "ease-in"),
         ("transform 2s ease-out", "ease-out"),
@@ -33,5 +34,15 @@
             <text class="little">@subtext</text>
         </div>
     }
+	
+	<div class="scale_panel" style="transition: transform 2s ease;">
+		<text style="color: red;">Hover over me!</text>
+		<text>scale( 1.5 )</text>
+	</div>
+
+	<div class="scale_panel" style="transition: all 0.1s ease;">
+		<text style="color: red;">Hover over me!</text>
+		<text>scale( 1.5 )</text>
+	</div>
 
 </root>
