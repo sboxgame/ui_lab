@@ -3,8 +3,6 @@
 @using Sandbox.UI;
 @attribute [StyleSheet]
 @inherits Panel
-@namespace DmMenu
-@implements Sandbox.Menu.IGameMenuPanel
 
 <root>
 
@@ -69,7 +67,6 @@
         RefreshTypes();
     }
 
-    [Event.Hotload]
     public void RefreshTypes()
     {
         AllTypes = TypeLibrary.GetTypes<Panel>()
