@@ -8,7 +8,7 @@
   "HasAssets": true,
   "AssetsPath": "",
   "Resources": null,
-  "MenuResources": "content/*\n*.scss",
+  "MenuResources": "content/*\n*.scss\n*\nstart.scene",
   "HasCode": true,
   "CodePath": "/",
   "PackageReferences": [],
