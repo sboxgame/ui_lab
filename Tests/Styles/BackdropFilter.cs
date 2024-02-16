@@ -34,7 +34,7 @@ public class BackdropFilter : Panel
 	[Range( 0, 1, clamped: false )]
 	public float FilterInvert { get; set; } = 0.0f;
 
-	[Property( "hue-rotate", "Hue-Rotate", "The rotation of the hue" )]
+	[Property( Name = "Hue-Rotate", Title = "The rotation of the hue" )]
 	[Range( 0, 360 )]
 	public float FilterHueRotate { get; set; } = 0.0f;
 

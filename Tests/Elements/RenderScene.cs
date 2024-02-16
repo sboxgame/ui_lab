@@ -49,9 +49,10 @@ public class RenderScene : Panel
 
 	}
 
-	public override void OnMouseWheel( float value )
+
+	public override void OnMouseWheel( Vector2 value )
 	{
-		CamDistance += value * 10.0f;
+		CamDistance += value.y * 10.0f;
 		CamDistance = CamDistance.Clamp( 10, 700 );
 
 		base.OnMouseWheel( value );
