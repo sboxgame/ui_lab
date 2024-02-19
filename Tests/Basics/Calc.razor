@@ -1,0 +1,15 @@
+﻿@namespace Sandbox.UI.Tests.Basics
+@inherits Sandbox.UI.Panel
+
+<style>
+	Calc {
+		flex-direction: column;
+		gap: 8px;
+	}
+</style>
+
+<root>	
+	<CalcPanel @Calc="calc( 10px + 50px )"></CalcPanel>
+	<CalcPanel @Calc="calc( 50% + 500px )"></CalcPanel>
+	<CalcPanel @Calc="calc( 25vw + 100px )"></CalcPanel>
+</root>
