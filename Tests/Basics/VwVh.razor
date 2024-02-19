@@ -1,0 +1,28 @@
+﻿@namespace Sandbox.UI.Tests.Basics
+@inherits Sandbox.UI.Panel
+<!-- These should all scale dynamically based on the size of the viewport -->
+
+<style>
+	div {
+		display: flex;
+		border: 1px solid red;
+	}
+
+	VwVh {
+		flex-direction: column;
+	}
+</style>
+
+<root>
+	<label>width: 25vw; height: 25vh;</label>
+	<div style="width: 25vw; height: 25vh;"></div>
+
+	<label>width: 50vw; height: 25vh;</label>
+	<div style="width: 50vw; height: 25vh;"></div>
+
+	<label>width: 25vw; height: 5vh;</label>
+	<div style="width: 25vw; height: 5vh;"></div>
+
+	<label>width: 5vw; height: 50vh;</label>
+	<div style="width: 5vw; height: 50vh;"></div>
+</root>
