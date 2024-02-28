@@ -29,6 +29,26 @@
 	    margin: 10px;
     }
 
+    .horizontal {
+        width: 600px;
+        background-color: black;
+        padding: 10px;
+        overflow-x: scroll;
+        overflow-y: visible;
+
+        .canvas {
+            width: 64px;
+            height: 64px;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-left: 4px;
+            margin-right: 4px;
+            border-radius: 4px;
+        }
+    }
+
 	.with-reverse-direction
 	{
 		flex-direction: column-reverse;
@@ -135,5 +155,25 @@
 		</div>
 		
 	</div>
+
+    <div class="rows">
+        <div class="horizontal">
+            <label class="canvas">1</label>
+            <label class="canvas">2</label>
+            <label class="canvas">3</label>
+            <label class="canvas">4</label>
+            <label class="canvas">5</label>
+            <label class="canvas">6</label>
+            <label class="canvas">7</label>
+            <label class="canvas">8</label>
+            <label class="canvas">9</label>
+            <label class="canvas">10</label>
+            <label class="canvas">11</label>
+            <label class="canvas">12</label>
+            <label class="canvas">13</label>
+            <label class="canvas">14</label>
+            <label class="canvas">15</label>
+        </div>
+    </div>
 
 </root>
