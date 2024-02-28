@@ -99,6 +99,7 @@
 
         TypeDescription t = AllTypes.FirstOrDefault(x => x.FullName == currentControlName);
         if ( t == null ) return;
+        if ( BodyPanel == null ) return;
 
         currentControl = t.Create<Panel>();
         currentControl.Parent = BodyPanel;
