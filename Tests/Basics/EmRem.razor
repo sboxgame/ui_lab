@@ -1,0 +1,37 @@
+﻿@namespace Sandbox.UI.Tests.Basics
+@inherits Sandbox.UI.Panel
+
+<style>
+	.box {
+		display: flex;
+		border: 1px solid red;
+	}
+
+	EmRem {
+		flex-direction: column;
+
+		div {
+			flex-direction: column;
+		}
+	}
+</style>
+
+<root>
+	<label>Root font size: @(FindRootPanel().ComputedStyle.FontSize)</label>
+	
+	<label>1rem</label>
+	<div class="box" style="width: 1rem; height: 1rem;"></div>
+
+	<label>10rem</label>
+	<div class="box" style="width: 10rem; height: 10rem;"></div>
+
+	<div style="font-size: 32px; margin-top: 64px;">
+		<label>font-size: 32px</label>
+		
+		<label>1em</label>
+		<div class="box" style="width: 1em; height: 1em;"></div>
+
+		<label>10em</label>
+		<div class="box" style="width: 10em; height: 10em;"></div>
+	</div>
+</root>
