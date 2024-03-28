@@ -30,8 +30,8 @@ public class BorderImages : Panel
 				 "border-radius: 10px; font-family: monospace; font-size: 20px;  border: 6px solid black;" +
 				 "border-image: url( /content/border-ff.png ) 30  round;"
 				 );
-		
-		//AddTest( "This is a box with a border around it", "border-image: linear-gradient(#f6b73c, #4d9f0c) 30;" );
+
+		AddTest( "This is a box with a gradient border around it", "border-image: linear-gradient( #ff00ff, #00ff00 ) stretch; border-width: 32px;" );
 		
 	}
 
