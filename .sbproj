@@ -5,12 +5,7 @@
   "Ident": "uilab",
   "Tags": null,
   "Schema": 1,
-  "HasAssets": true,
-  "AssetsPath": "",
   "Resources": null,
-  "MenuResources": "content/*\n*.scss\n*\nstart.scene",
-  "HasCode": true,
-  "CodePath": "/",
   "PackageReferences": [],
   "EditorReferences": null,
   "Metadata": {
